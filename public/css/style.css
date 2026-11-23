@@ -56,3 +56,33 @@ input[type="submit"] {
     padding: .375rem 1rem;
     margin-top: 10px;
 }
+
+/* Practicum: custom CRM objects homepage */
+.library {
+    max-width: 1100px;
+    margin: 2rem auto;
+    padding: 0 1.25rem;
+}
+
+.library__intro {
+    margin: 0.75rem 1rem 1.5rem;
+    color: #475569;
+}
+
+.library__table {
+    width: 100%;
+    border-collapse: collapse;
+    background: #fff;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+.library__table th,
+.library__table td {
+    padding: 0.9rem 1rem;
+    text-align: left;
+    border-bottom: 1px solid #e2e8f0;
+}
+
+.library__table th {
+    background: #f1f5f9;
+}
