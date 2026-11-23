@@ -56,7 +56,43 @@ app.get('/update-cobj', (req, res) => {
 
 // TODO: ROUTE 3 - Create a new app.post route for the custom objects form to create or update your custom object data. Once executed, redirect the user to the homepage.
 
-// * Code for Route 3 goes here
+// ROUTE 3: create a book record in the custom CRM object.
+app.post('/update-cobj', async (req, res) => {
+    if (!HUBSPOT_ACCESS_TOKEN || !OBJECT_TYPE_ID) {
+        return res.status(500).send('Configure HUBSPOT_ACCESS_TOKEN and HUBSPOT_OBJECT_TYPE_ID in .env.');
+    }
+
+    const fields = ['name', 'author', 'genre'];
+    const properties = {};
+
+    for (const field of fields) {
+        const value = req.body[field];
+        if (typeof value !== 'string' || !value.trim()) {
+            return res.status(400).send(`The ${field} field is required.`);
+        }
+        properties[field] = value.trim();
+    }
+
+    try {
+        await axios.post(
+            `https://api.hubapi.com/crm/v3/objects/${encodeURIComponent(OBJECT_TYPE_ID)}`,
+            { properties },
+            {
+                headers: {
+                    Authorization: `Bearer ${HUBSPOT_ACCESS_TOKEN}`,
+                    'Content-Type': 'application/json'
+                },
+                timeout: 10000
+            }
+        );
+
+        return res.redirect(303, '/');
+    } catch (error) {
+        const status = error.response?.status || 502;
+        console.error('HubSpot POST book:', status, error.response?.data?.message || error.message);
+        return res.status(status).send(`Unable to create the book in HubSpot (HTTP ${status}).`);
+    }
+});
 
 /** 
 * * This is sample code to give you a reference for how you should structure your calls. 
