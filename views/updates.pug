@@ -1,0 +1,21 @@
+doctype html
+html(lang="en")
+    head
+        meta(charset="UTF-8")
+        meta(name="viewport" content="width=device-width, initial-scale=1")
+        title= title
+        link(rel="stylesheet" href="/css/style.css")
+    body
+        main.library
+            h1 Add a Book
+            p.library__intro Create a new record in the HubSpot custom Books object.
+            a.library__link(href="/") Return to the homepage
+            form.library__form(method="POST" action="/update-cobj")
+                label(for="name") Name
+                input#name(type="text" name="name" required)
+                label(for="author") Author
+                input#author(type="text" name="author" required)
+                label(for="genre") Genre
+                input#genre(type="text" name="genre" required)
+                button.library__submit(type="submit" disabled title="POST route will be enabled after testing this form") Save book (coming next)
+                p.library__note Form preview only. Saving will be enabled in the next practicum step.
