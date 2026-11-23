@@ -56,3 +56,83 @@ input[type="submit"] {
     padding: .375rem 1rem;
     margin-top: 10px;
 }
+
+/* Practicum: custom CRM objects homepage */
+.library {
+    max-width: 1100px;
+    margin: 2rem auto;
+    padding: 0 1.25rem;
+}
+
+.library__intro {
+    margin: 0.75rem 1rem 1.5rem;
+    color: #475569;
+}
+
+.library__table {
+    width: 100%;
+    border-collapse: collapse;
+    background: #fff;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+.library__table th,
+.library__table td {
+    padding: 0.9rem 1rem;
+    text-align: left;
+    border-bottom: 1px solid #e2e8f0;
+}
+
+.library__table th {
+    background: #f1f5f9;
+}
+
+
+.library__link {
+    display: inline-block;
+    margin: 0 1rem 1.5rem;
+    color: #075985;
+    font-weight: 600;
+}
+
+.library__form {
+    max-width: 560px;
+    padding: 1.5rem;
+    border: 1px solid #e2e8f0;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.library__form label {
+    font-weight: 600;
+    margin-top: 1rem;
+}
+
+.library__form input {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 0.65rem;
+    border: 1px solid #cbd5e1;
+    border-radius: 6px;
+}
+
+.library__submit {
+    margin-top: 1.4rem;
+    padding: 0.7rem 1rem;
+    border: 0;
+    border-radius: 6px;
+    background: #0f766e;
+    color: white;
+    font-size: 1rem;
+}
+
+.library__submit:disabled {
+    cursor: not-allowed;
+    opacity: 0.5;
+}
+
+.library__note {
+    margin-top: 0.75rem;
+    color: #64748b;
+    font-size: 0.9rem;
+}

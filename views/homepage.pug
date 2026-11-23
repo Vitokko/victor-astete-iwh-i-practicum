@@ -1,0 +1,27 @@
+doctype html
+html(lang="en")
+    head
+        meta(charset="UTF-8")
+        meta(name="viewport" content="width=device-width, initial-scale=1")
+        title= title
+        link(rel="stylesheet" href="/css/style.css")
+    body
+        main.library
+            h1 Book Library
+            p.library__intro Custom CRM records from the HubSpot developer test account.
+            a.library__link(href="/update-cobj") Add to this table
+            if books.length
+                table.library__table
+                    thead
+                        tr
+                            th Name
+                            th Author
+                            th Genre
+                    tbody
+                        each book in books
+                            tr
+                                td= book.properties.name || '—'
+                                td= book.properties.author || '—'
+                                td= book.properties.genre || '—'
+            else
+                p No books found in HubSpot.
